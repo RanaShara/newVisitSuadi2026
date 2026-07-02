@@ -1,0 +1,104 @@
+@model TourGuide
+@{
+Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+  var GetGuide = ViewBag.GetGuide;
+    var getCompany = ViewBag.getCompany;
+
+
+}
+
+<div class="content">
+
+
+<h1>إدارة المرشدين السياحيين</h1>
+
+<div class="card mt-5 shadow">
+    <div class="card-header text-white">
+        <h4 class="text-center mb-0">إضافة مرشد جديد</h4>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="CreateNewTourGuide" method="post">
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label class="form-label">اسم المرشد</label>
+                    <input type="text" name="Name" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">الشركة</label>
+
+                    <select class="form-select" name="TourCompanyId">
+
+                        @foreach (var item in getCompany)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <button class="btn">حفظ</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="card mt-5 shadow">
+    <div class="card-header text-white">
+        <h4 class="text-center mb-0">قائمة المرشدين</h4>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered text-center">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>رقم المرشد</th>
+                    <th>اسم المرشد</th>
+                    <th>الشركة</th>
+                    <th colspan="2">الإجراء</th>
+                </tr>
+            </thead>
+
+            <tbody>
+@foreach (var item in GetGuide)
+{
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.CompanyName</td>
+
+        <td>
+            <a asp-action="DeleteTourGuide" asp-route-id="@item.Id">
+                حذف
+            </a>
+        </td>
+
+        <td>
+            <a asp-action="EditTourGuide" asp-route-id="@item.Id">
+                تعديل
+            </a>
+        </td>
+    </tr>
+}
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+</div>

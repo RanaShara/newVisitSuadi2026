@@ -1,0 +1,182 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+<div class="intro-header">
+    <span class="intro-header__badge">
+        <i class="bi bi-compass"></i> تجربة سياحية استثنائية
+    </span>
+
+
+<h1>
+    اكتشف المملكة مع
+    <span class="highlight">مرشدك السياحي الخاص</span>
+</h1>
+
+<p>
+    استمتع بتجربة سفر متكاملة تجمع بين الراحة والتنظيم والاستكشاف،
+    مع مرشد سياحي يرافقك في رحلتك ويمنحك تجربة أكثر ثراءً وخصوصية
+    في أجمل وجهات المملكة العربية السعودية.
+</p>
+
+
+</div>
+
+<div class="container my-5">
+
+
+    <!-- العنوان -->
+    <div class="animated-header">
+        <h1>
+            <span>استمتع</span>
+            <span>بأفضل</span>
+            <span>الباقات</span>
+            <span>السياحية</span>
+        </h1>
+    </div>
+
+    <!-- الفلاتر -->
+    <div class="filter-bar">
+
+        <select id="cityFilter" class="filter-select">
+            <option value="all">جميع المدن</option>
+
+            @foreach (var city in ViewBag.Cities)
+            {
+                <option value="@city.Name">@city.Name</option>
+            }
+
+        </select>
+
+        <select id="companyFilter" class="filter-select">
+            <option value="all">جميع الشركات السياحية</option>
+
+            @foreach (var company in ViewBag.Companies)
+            {
+                <option value="@company.Name">@company.Name</option>
+            }
+
+        </select>
+
+    </div>
+
+    <!-- لا توجد نتائج -->
+    <div id="noResults" class="text-center py-5" style="display:none;">
+        <p class="text-muted fs-5">
+             لا توجد باقات مطابقة للبحث
+        </p>
+    </div>
+
+    <!-- الباقات -->
+    <div class="row g-4" id="packageContainer">
+
+        @foreach (var package in ViewBag.GetPackage)
+        {
+            <div class="col-md-4 col-sm-6 package-card"
+                 data-city="@package.CityName"
+                 data-company="@package.CompanyName">
+
+                <div class="card glare-hover h-100">
+
+                    <img src="@package.ImagePath"
+                         class="card-img-top"
+                         alt="صورة الباقة">
+
+                    <div class="card-body text-center d-flex flex-column">
+
+                        <h5 class="card-title">
+                            @package.Name
+                        </h5>
+
+                        <p class="card-text flex-grow-1">
+                            @package.Description
+                        </p>
+
+                        <p class="text-muted mb-1">
+                            📍 @package.CityName
+                        </p>
+
+                        <p class="text-muted mb-1">
+                             الشركة: @package.CompanyName
+                        </p>
+
+                        <p class="text-muted mb-2">
+                             المرشد: @package.GuideName
+                        </p>
+
+                        <span class="price-badge mb-3">
+                            @package.Price ريال
+                        </span>
+
+                        <a asp-action="Details"
+                           asp-route-id="@package.Id"
+                           class="btn btn-primary mt-auto">
+                            عرض التفاصيل
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
+
+<script>
+
+    const cityFilter = document.getElementById('cityFilter');
+    const companyFilter = document.getElementById('companyFilter');
+    const packages = document.querySelectorAll('.package-card');
+    const noResults = document.getElementById('noResults');
+
+    function applyFilters() {
+
+        const selectedCity = cityFilter.value;
+        const selectedCompany = companyFilter.value;
+
+        let visible = 0;
+
+        packages.forEach(card => {
+
+            const cityMatch =
+                selectedCity === "all" ||
+                card.dataset.city === selectedCity;
+
+            const companyMatch =
+                selectedCompany === "all" ||
+                card.dataset.company === selectedCompany;
+
+            if (cityMatch && companyMatch) {
+                card.style.display = "block";
+                visible++;
+            }
+            else {
+                card.style.display = "none";
+            }
+
+        });
+
+        noResults.style.display = visible === 0 ? "block" : "none";
+    }
+
+    cityFilter.addEventListener("change", applyFilters);
+    companyFilter.addEventListener("change", applyFilters);
+
+</script>

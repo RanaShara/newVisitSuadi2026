@@ -1,0 +1,88 @@
+@model TourCompany
+@{
+Layout = "~/Views/Shared/_AdminLayout.cshtml";
+var GetCompany = ViewBag.GetCompany;
+}
+
+<div class="content">
+
+
+<h1>إدارة الشركات السياحية</h1>
+
+<div class="card mt-5 shadow">
+    <div class="card-header text-white">
+        <h4 class="text-center mb-0">إضافة شركة جديدة</h4>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="CreateNewTourCompany" method="post">
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label class="form-label">اسم الشركة</label>
+                    <input type="text" name="Name" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">الوصف</label>
+                    <input type="text" name="Description" class="form-control" />
+                </div>
+
+            </div>
+
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <button class="btn">حفظ</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="card mt-5 shadow">
+    <div class="card-header text-white">
+        <h4 class="text-center mb-0">قائمة الشركات</h4>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>رقم الشركة</th>
+                    <th>اسم الشركة</th>
+                    <th>الوصف</th>
+                    <th colspan="2">الإجراء</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in GetCompany)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+
+                        <td>
+                            <a asp-action="DeleteTourCompany" asp-route-id="@item.Id" class="text-danger">
+                                <i class="bi bi-trash-fill fs-5"></i>
+                            </a>
+                        </td>
+
+                        <td>
+                            <a asp-action="EditTourCompany" asp-route-id="@item.Id" class="text-success">
+                                <i class="bi bi-pencil-square fs-5"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+</div>

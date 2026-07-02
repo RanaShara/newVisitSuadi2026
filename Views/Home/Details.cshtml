@@ -1,0 +1,52 @@
+@model dynamic
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9">
+
+            <div class="card glare-hover border-0">
+
+                <!-- صورة الباقة -->
+                <div class="details-img-wrapper">
+                    <img src="@Model.ImagePath" alt="@Model.Name" class="details-img" />
+                    <div class="details-img-overlay">
+                        <span class="price-badge fs-6">@Model.Price ريال</span>
+                    </div>
+                </div>
+
+                <div class="card-body px-4 py-4">
+
+                    <!-- اسم الباقة -->
+                    <h3 class="card-title fw-bold mb-1">@Model.Name</h3>
+                    <p class="text-muted mb-3"> @Model.CityName</p>
+
+                    <hr class="my-3" style="border-color: var(--primary-light);">
+
+                    <!-- الوصف -->
+                    <p class="card-text mb-4" style="line-height: 1.8;">@Model.Description</p>
+
+                    <!-- البرنامج -->
+                    <div class="program-box mb-4">
+                        <h6 class="fw-bold mb-2"> برنامج الرحلة</h6>
+                        <p class="mb-0" style="line-height: 1.9; color: var(--text-muted);">@Model.Details</p>
+                    </div>
+
+                    <!-- زر الحجز -->
+                    <a href="/Home/Payment/@Model.Id" class="btn btn-primary w-100 py-2 fs-5 fw-bold">
+                         احجز الآن
+                    </a>
+
+                    <!-- زر الرجوع -->
+                    <a asp-action="Index" class="btn btn-outline-secondary w-100 mt-2">
+                        ← العودة للباقات
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

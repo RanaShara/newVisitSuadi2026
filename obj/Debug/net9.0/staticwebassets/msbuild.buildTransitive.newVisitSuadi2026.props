@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\newVisitSuadi2026.props" />
+</Project>

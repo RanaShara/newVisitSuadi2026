@@ -1,0 +1,113 @@
+@model dynamic
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "إتمام الدفع";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+
+            <div class="card glare-hover border-0">
+                <div class="card-body px-4 py-4">
+
+                    <!-- العنوان -->
+                    <div class="animated-header mb-4">
+                        <h1><span>تفاصيل</span> <span>الحجز</span></h1>
+                    </div>
+
+                    <!-- ملخص الباقة -->
+                    <div class="program-box mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">اسم الباقة</span>
+                            <span class="fw-bold">@ViewBag.Package.Name</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">المدينة</span>
+                            <span class="fw-bold">@ViewBag.Package.CityName</span>
+                        </div>
+                        <hr style="border-color: var(--primary-light);">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-muted fw-bold">الإجمالي</span>
+                            <span class="price-badge fs-6">@ViewBag.Package.Price ريال</span>
+                        </div>
+                    </div>
+
+                    <!-- فورم الدفع -->
+                    <form method="post" action="/Home/ConfirmPayment">
+                        <input type="hidden" name="packageId" value="@ViewBag.Package.Id" />
+
+                        <!-- رقم البطاقة -->
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label fw-bold">
+                                <i class="bi bi-credit-card me-1"></i> رقم البطاقة
+                            </label>
+                            <input type="text" id="cardNumber" name="cardNumber"
+                                   class="form-control payment-input"
+                                   placeholder="0000 0000 0000 0000"
+                                   maxlength="19" required>
+                        </div>
+
+                        <!-- تاريخ الانتهاء + CVV -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-7">
+                                <label for="expiryDate" class="form-label fw-bold">
+                                    <i class="bi bi-calendar3 me-1"></i> تاريخ الانتهاء
+                                </label>
+                                <input type="text" id="expiryDate" name="expiryDate"
+                                       class="form-control payment-input"
+                                       placeholder="MM/YY" maxlength="5" required>
+                            </div>
+                            <div class="col-5">
+                                <label for="cvv" class="form-label fw-bold">
+                                    <i class="bi bi-lock me-1"></i> CVV
+                                </label>
+                                <input type="password" id="cvv" name="cvv"
+                                       class="form-control payment-input"
+                                       placeholder="•••" maxlength="3" required>
+                            </div>
+                        </div>
+
+                        <!-- زر الدفع -->
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold fs-5 mt-2">
+                            <i class="bi bi-shield-check me-2"></i> إتمام الدفع بأمان
+                        </button>
+
+                        <!-- زر الرجوع -->
+                        <a asp-action="Index" class="btn btn-outline-secondary w-100 mt-2">
+                            ← العودة للباقات
+                        </a>
+
+                    </form>
+
+                    <!-- أيقونات الأمان -->
+                    <div class="text-center mt-3">
+                        <small class="text-muted">
+                            <i class="bi bi-lock-fill text-success me-1"></i>
+                            جميع المعاملات محمية ومشفّرة
+                        </small>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    // تنسيق رقم البطاقة تلقائياً
+    document.getElementById('cardNumber').addEventListener('input', function () {
+        let val = this.value.replace(/\D/g, '').substring(0, 16);
+        this.value = val.replace(/(.{4})/g, '$1 ').trim();
+    });
+
+    // تنسيق تاريخ الانتهاء تلقائياً
+    document.getElementById('expiryDate').addEventListener('input', function () {
+        let val = this.value.replace(/\D/g, '').substring(0, 4);
+        if (val.length >= 3) val = val.substring(0, 2) + '/' + val.substring(2);
+        this.value = val;
+    });
+</script>
+}
