@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace newVisitSuadi2026.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class AddTourGuideToPackage : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -36,7 +36,8 @@ namespace newVisitSuadi2026.Migrations
                     CityId = table.Column<int>(type: "integer", nullable: false),
                     TourCompanyId = table.Column<int>(type: "integer", nullable: false),
                     Details = table.Column<string>(type: "text", nullable: false),
-                    ImagePath = table.Column<string>(type: "text", nullable: false)
+                    ImagePath = table.Column<string>(type: "text", nullable: false),
+                    TourGuideId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -9,8 +9,8 @@ using newVisitSuadi2026.Data;
 
 namespace newVisitSuadi2026.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DashboardContext))]
+    partial class DashboardContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

@@ -10,9 +10,9 @@ using newVisitSuadi2026.Data;
 
 namespace newVisitSuadi2026.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260610105951_InitialCreate")]
-    partial class InitialCreate
+    [DbContext(typeof(DashboardContext))]
+    [Migration("20260702150839_AddTourGuideToPackage")]
+    partial class AddTourGuideToPackage
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,6 +72,9 @@ namespace newVisitSuadi2026.Migrations
                         .HasColumnType("real");
 
                     b.Property<int>("TourCompanyId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TourGuideId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");

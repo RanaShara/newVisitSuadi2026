@@ -197,3 +197,4 @@ C:\Users\hp\Desktop\newVisitSuadi2026\obj\Debug\net9.0\compressed\njzfh0pmqr-7ix
 C:\Users\hp\Desktop\newVisitSuadi2026\obj\Debug\net9.0\compressed\5v1utzjxee-s4toxfrc16.gz
 C:\Users\hp\Desktop\newVisitSuadi2026\obj\Debug\net9.0\compressed\aleshjekzs-s4toxfrc16.gz
 C:\Users\hp\Desktop\newVisitSuadi2026\obj\Debug\net9.0\compressed\35xfix0360-7bkj7n4jtk.gz
+C:\Users\hp\Desktop\newVisitSuadi2026\obj\Debug\net9.0\newVisitSuadi2026.sourcelink.json
