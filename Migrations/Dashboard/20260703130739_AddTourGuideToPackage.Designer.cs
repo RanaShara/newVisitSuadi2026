@@ -8,10 +8,10 @@ using newVisitSuadi2026.Data;
 
 #nullable disable
 
-namespace newVisitSuadi2026.Migrations.ApplicationDb
+namespace newVisitSuadi2026.Migrations.Dashboard
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260702150958_AddTourGuideToPackage")]
+    [DbContext(typeof(DashboardContext))]
+    [Migration("20260703130739_AddTourGuideToPackage")]
     partial class AddTourGuideToPackage
     {
         /// <inheritdoc />

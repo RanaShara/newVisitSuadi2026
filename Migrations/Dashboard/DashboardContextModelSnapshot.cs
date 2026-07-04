@@ -7,10 +7,10 @@ using newVisitSuadi2026.Data;
 
 #nullable disable
 
-namespace newVisitSuadi2026.Migrations.ApplicationDb
+namespace newVisitSuadi2026.Migrations.Dashboard
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DashboardContext))]
+    partial class DashboardContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

@@ -198,3 +198,8 @@ C:\Users\hp\Desktop\newVisitSuadi2026\obj\Debug\net9.0\compressed\5v1utzjxee-s4t
 C:\Users\hp\Desktop\newVisitSuadi2026\obj\Debug\net9.0\compressed\aleshjekzs-s4toxfrc16.gz
 C:\Users\hp\Desktop\newVisitSuadi2026\obj\Debug\net9.0\compressed\35xfix0360-7bkj7n4jtk.gz
 C:\Users\hp\Desktop\newVisitSuadi2026\obj\Debug\net9.0\newVisitSuadi2026.sourcelink.json
+C:\Users\hp\Desktop\newVisitSuadi2026\bin\Debug\net9.0\publish-linux\appsettings.Development.json
+C:\Users\hp\Desktop\newVisitSuadi2026\bin\Debug\net9.0\publish-linux\appsettings.json
+C:\Users\hp\Desktop\newVisitSuadi2026\bin\Debug\net9.0\publish-linux\newVisitSuadi2026.deps.json
+C:\Users\hp\Desktop\newVisitSuadi2026\bin\Debug\net9.0\publish-linux\newVisitSuadi2026.runtimeconfig.json
+C:\Users\hp\Desktop\newVisitSuadi2026\bin\Debug\net9.0\publish-linux\newVisitSuadi2026.staticwebassets.endpoints.json

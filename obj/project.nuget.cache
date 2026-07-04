@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NnZRqP65+T8=",
+  "dgSpecHash": "JuFTPUUFG5Y=",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\Desktop\\newVisitSuadi2026\\newVisitSuadi2026.csproj",
   "expectedPackageFiles": [
@@ -45,10 +45,7 @@
     "C:\\Users\\hp\\.nuget\\packages\\system.reflection.metadata\\7.0.0\\system.reflection.metadata.7.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.text.json\\9.0.9\\system.text.json.9.0.9.nupkg.sha512",
-    "C:\\Users\\hp\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
-    "C:\\Users\\hp\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\9.0.0\\microsoft.netcore.app.runtime.linux-x64.9.0.0.nupkg.sha512",
-    "C:\\Users\\hp\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\9.0.0\\microsoft.aspnetcore.app.runtime.linux-x64.9.0.0.nupkg.sha512",
-    "C:\\Users\\hp\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\9.0.0\\microsoft.netcore.app.host.linux-x64.9.0.0.nupkg.sha512"
+    "C:\\Users\\hp\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

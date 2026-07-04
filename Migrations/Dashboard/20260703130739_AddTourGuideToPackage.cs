@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace newVisitSuadi2026.Migrations.ApplicationDb
+namespace newVisitSuadi2026.Migrations.Dashboard
 {
     /// <inheritdoc />
     public partial class AddTourGuideToPackage : Migration
